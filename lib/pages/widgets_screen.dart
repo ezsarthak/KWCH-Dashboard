@@ -71,7 +71,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            textName: "Widgets",
+                            textName: "Watch Faces",
                             fontSize: Dimensions.appBarTitle,
                             textColor:
                                 Theme.of(context).textTheme.labelLarge!.color,
@@ -82,7 +82,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
                           ),
                           Center(
                             child: CustomText(
-                              textName: "Explore Featured Widgets",
+                              textName: "Explore Featured WatchFace",
                               fontWeight: FontWeight.w200,
                               fontSize: Dimensions.appBarSubTitle,
                               textColor:
@@ -94,15 +94,15 @@ class _WidgetScreenState extends State<WidgetScreen> {
                       Center(
                         child: GestureDetector(
                           onTap: () {
-                            setState(() {
-                              if (providerChange.axis == 4) {
-                                providerChange.axisCount = 2;
-                                providerChange.mainaxisCount = 2;
-                              } else {
-                                providerChange.axisCount = 4;
-                                providerChange.mainaxisCount = 4;
-                              }
-                            });
+                            // setState(() {
+                            //   if (providerChange.axis == 4) {
+                            //     providerChange.axisCount = 2;
+                            //     providerChange.mainaxisCount = 2;
+                            //   } else {
+                            //     providerChange.axisCount = 4;
+                            //     providerChange.mainaxisCount = 4;
+                            //   }
+                            // });
                           },
                           child: Icon(
                             Iconsax.setting_5,
@@ -124,7 +124,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.75,
+                            width: MediaQuery.of(context).size.width * 0.7,
                             child: StaggeredGridView.countBuilder(
                                 itemCount: img.length,
                                 shrinkWrap: true,

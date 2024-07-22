@@ -145,6 +145,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
                           onTap: () {
@@ -156,8 +157,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                     )));
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.29,
-                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.26,
+                            width: MediaQuery.of(context).size.width * 0.41,
                             decoration: BoxDecoration(
                                 color: Colors.transparent,
                                 borderRadius: BorderRadius.circular(28),
@@ -169,7 +170,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                           ),
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             GestureDetector(
                               onTap: () {
@@ -190,9 +192,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                     )),
                               ),
                             ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
+                                   SizedBox(
+                                     height: MediaQuery.of(context).size.height * 0.02,
+                                   ),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(

@@ -41,13 +41,31 @@ class _WidgetCardState extends State<WidgetCard> {
                             imagepath: widget.imagepath,
                           ))));
             },
-            child: Container(
-              width:   MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+            child: Stack(
+              children: [
+                SizedBox(
+                  width:  MediaQuery.of(context).size.width * 0.64,
+                  height: MediaQuery.of(context).size.width * 0.64,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 18, left: 18),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(360),
+                        image:  DecorationImage(
+                            fit: BoxFit.cover,
+                            image: FileImage(File(widget.imagepath)))),
 
-                  borderRadius: BorderRadius.circular(360),
-                  image: DecorationImage(
-                      image: FileImage(File(widget.imagepath)))),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(360),
+                      image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/app elements/watch.png"))
+                  ),
+                ),
+              ],
             ),
           );
         } else {
