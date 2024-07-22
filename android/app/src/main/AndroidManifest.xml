@@ -35,7 +35,7 @@
 
 
     <application
-        android:label="Nothing Watch Studio"
+        android:label="Novel KWCH"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 

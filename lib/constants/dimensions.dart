@@ -11,5 +11,5 @@ class Dimensions {
   static double smallText = 20;
 
   static EdgeInsetsGeometry pagePadding =
-      const EdgeInsets.only(right: 22, left: 22, top: 16, bottom: 8);
+      const EdgeInsets.only(right: 22, left: 22, top: 20, bottom: 8);
 }

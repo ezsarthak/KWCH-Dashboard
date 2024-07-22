@@ -158,13 +158,31 @@ class AboutScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () async {
-                                const url = "https://www.instagram.com/sarthak_designs";
+                                const url = "https://www.instagram.com/ezsarthak";
                                 if (await canLaunch(url)) {
                                   await launch(url);
                                 }
                               },
                               child: CustomText(
                                 textName: "Instagram",
+                                letterSpacing: 2,
+                                textColor: Theme.of(context).indicatorColor,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 40,
+                            ),
+                            GestureDetector(
+                              onTap: () async {
+                                const url = "https://twitter.com/ezsarthak";
+                                if (await canLaunch(url)) {
+                                  await launch(url);
+                                }
+                              },
+                              child: CustomText(
+                                textName: "Twitter",
                                 letterSpacing: 2,
                                 textColor: Theme.of(context).indicatorColor,
                                 fontWeight: FontWeight.w600,

@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:novel/constants/novel_colors.dart';
@@ -52,186 +53,173 @@ class _NavigationScreenState extends State<NavigationScreen> {
           body: SafeArea(
             child: Padding(
               padding: Dimensions.pagePadding,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            textName: appName,
-                            fontSize: 20,
-                            textColor:
-                                Theme.of(context).textTheme.labelLarge!.color,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.63,
-                            child: CustomText(
-                              textName: appDescription,
-                              textOverflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                              fontWeight: FontWeight.w200,
-                              fontSize: 10,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomText(
+                              textName: appName,
+                              fontSize: 20,
                               textColor:
                                   Theme.of(context).textTheme.labelLarge!.color,
+                              fontWeight: FontWeight.bold,
                             ),
+                            const SizedBox(
+                              height: 4,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.63,
+                              child: CustomText(
+                                textName: appDescription,
+                                textOverflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                fontWeight: FontWeight.w200,
+                                fontSize: 10,
+                                textColor:
+                                    Theme.of(context).textTheme.labelLarge!.color,
+                              ),
+                            ),
+                          ],
+                        ),
+                        GestureDetector(
+                          // behavior: HitTestBehavior.translucent,
+                          // onTap: () {
+                          //   logoutDialog(context);
+                          // },
+                          child: const CircleAvatar(
+                            radius: 24,
+                            foregroundImage:
+                                AssetImage("assets/app elements/app_logo.jpg"),
                           ),
-                        ],
-                      ),
-                      GestureDetector(
-                        // behavior: HitTestBehavior.translucent,
-                        // onTap: () {
-                        //   logoutDialog(context);
-                        // },
-                        child: const CircleAvatar(
-                          radius: 24,
-                          foregroundImage:
-                              AssetImage("assets/app elements/app_logo.jpg"),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  // const SizedBox(
-                  //   height: 12,
-                  // ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => WidgetScreen(
-                                    snapshot: widget.snapshot,
-                                  )));
-                    },
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.51,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(32),
-                              image: const DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(
-                                    "assets/app elements/widget.png"),
-                              )),
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.31,
-                          width: MediaQuery.of(context).size.height * 0.31,
-                          decoration: BoxDecoration(
-
-                              image: DecorationImage(
-                                  image: FileImage(File(img.elementAt(0)))),
-                              borderRadius: BorderRadius.circular(360)),
                         ),
                       ],
                     ),
-                  ),
-                  // const SizedBox(
-                  //   height: 12,
-                  // ),
-                  CustomText(
-                    textName: "More",
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    letterSpacing: 4,
-                    textColor: Theme.of(context).textTheme.labelLarge!.color,
-                  ),
 
-                  // const SizedBox(
-                  //   height: 12,
-                  // ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Wallpapers()));
-                        },
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.29,
-                          width: MediaQuery.of(context).size.width * 0.4,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(28),
-                              image: const DecorationImage(
-                                fit: BoxFit.contain,
-                                image: AssetImage(
-                                    "assets/app elements/Wallpaper.png"),
-                              )),
-                        ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WidgetScreen(
+                                      snapshot: widget.snapshot,
+                                    )));
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(32),
+                            image: const DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                  "assets/app elements/widget.png"),
+                            )),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => OtherApps(
-                                            snapshot: widget.snapshot,
-                                          )));
-                            },
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.12,
-                              width: MediaQuery.of(context).size.width * 0.43,
-                              decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(28),
-                                  image: const DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                        "assets/app elements/MoreApps.png"),
-                                  )),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    // CustomText(
+                    //   textName: "More",
+                    //   fontWeight: FontWeight.w600,
+                    //   fontSize: 16,
+                    //   letterSpacing: 4,
+                    //   textColor: Theme.of(context).textTheme.labelLarge!.color,
+                    // ),
+
+                    // const SizedBox(
+                    //   height: 12,
+                    // ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>  OtherApps(
+                                      snapshot: widget.snapshot,
+                                    )));
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.29,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(28),
+                                image: const DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: AssetImage(
+                                      "assets/app elements/MoreApps.png"),
+                                )),
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                showDialog(context: context, builder: (BuildContext context){
+                                  return ApplyDialog();
+                                });
+                              },
+                              child: Container(
+                                height: MediaQuery.of(context).size.height * 0.12,
+                                width: MediaQuery.of(context).size.width * 0.43,
+                                decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(28),
+                                    image: const DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: AssetImage(
+                                          "assets/app elements/Apply.png"),
+                                    )),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SettingsScreen()));
-                            },
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.12,
-                              width: MediaQuery.of(context).size.width * 0.43,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(28),
-                                  color: Colors.transparent,
-                                  image: const DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                        "assets/app elements/Settings.png"),
-                                  )),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
                             ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SettingsScreen()));
+                              },
+                              child: Container(
+                                height: MediaQuery.of(context).size.height * 0.12,
+                                width: MediaQuery.of(context).size.width * 0.43,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(28),
+                                    color: Colors.transparent,
+                                    image: const DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: AssetImage(
+                                          "assets/app elements/Setting.png"),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -322,5 +310,75 @@ class _NavigationScreenState extends State<NavigationScreen> {
       ),
     );
     showDialog(context: context, builder: (BuildContext context) => dialog);
+  }
+  // void applyDialog(BuildContext context) {
+  //   var dialog =
+  //   showDialog(context: context, builder: (BuildContext context) => dialog);
+  // }
+}
+
+class ApplyDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Theme.of(context).cardColor,
+      title: CustomText(
+        textName: "Steps to Apply",
+        fontSize: 20,
+        textColor: Theme.of(context).textTheme.labelLarge!.color,
+        fontWeight: FontWeight.bold,
+      ),
+      // shape: const RoundedRectangleBorder(
+      //   borderRadius: BorderRadius.all(
+      //     Radius.circular(25.0),
+      //   ),
+      // ),
+      content: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomText(
+                fontWeight: FontWeight.w500,
+                maxLines: 100,
+                lineHeight: 1.6,
+                textColor: Theme.of(context).textTheme.labelMedium!.color,
+                textName:
+                "1.Install KWCH app in android Phone (Requires Paid- in app purchase) and Wear OS Smart Watch (Free) both \n "
+                    "2.Connect Smartwatch with Phone. Open this watchface in KWCH app of Android Phone \n "
+                    "3.Apply KWCH watchface on the watch\n "
+                    "4. In the phone, select one watchface from KWCH app. Click on the Green watch icon on the top Apply and done \n "
+
+
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16.0),
+              child: Center(
+                child: TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Container(
+                    height: 50,
+                    width: 108,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).textTheme.titleMedium!.color,
+                        borderRadius: BorderRadius.circular(16)),
+                    child: Center(
+                      child: CustomText(
+                        textName: "OK",
+                        textColor:
+                        Theme.of(context).textTheme.titleLarge!.color,
+                        fontSize: 17,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
   }
 }

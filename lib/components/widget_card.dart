@@ -42,6 +42,7 @@ class _WidgetCardState extends State<WidgetCard> {
                           ))));
             },
             child: Container(
+              width:   MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
 
                   borderRadius: BorderRadius.circular(360),

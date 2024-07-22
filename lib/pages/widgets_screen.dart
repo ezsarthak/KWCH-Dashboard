@@ -97,7 +97,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
                             setState(() {
                               if (providerChange.axis == 4) {
                                 providerChange.axisCount = 2;
-                                providerChange.mainaxisCount = 3;
+                                providerChange.mainaxisCount = 2;
                               } else {
                                 providerChange.axisCount = 4;
                                 providerChange.mainaxisCount = 4;
@@ -124,7 +124,7 @@ class _WidgetScreenState extends State<WidgetScreen> {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.7,
+                            width: MediaQuery.of(context).size.width * 0.75,
                             child: StaggeredGridView.countBuilder(
                                 itemCount: img.length,
                                 shrinkWrap: true,

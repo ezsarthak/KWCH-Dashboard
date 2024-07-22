@@ -188,7 +188,7 @@ class WidgetDetails extends StatelessWidget {
                   Center(
                     child: CustomButton(
                       onPressed: () {
-                        disclaimerDialog(context);
+                        applyDialog(context);
                       },
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * 0.16,
@@ -243,7 +243,7 @@ class WidgetDetails extends StatelessWidget {
     );
   }
 
-  void disclaimerDialog(BuildContext context) {
+  void applyDialog(BuildContext context) {
     var dialog = AlertDialog(
       backgroundColor: Theme.of(context).cardColor,
       title: CustomText(
@@ -257,18 +257,23 @@ class WidgetDetails extends StatelessWidget {
           Radius.circular(25.0),
         ),
       ),
-      content: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.45,
+      content: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomText(
                 fontWeight: FontWeight.w500,
-                maxLines: 10,
+                maxLines: 100,
                 lineHeight: 1.6,
                 textColor: Theme.of(context).textTheme.labelMedium!.color,
                 textName:
-                    "1.Download KWCH app in android and watch both \n 2.Apply sample watchface on the watch \n 3.Open this watchface in KWCH in android \n 4.Apply and done. Click OK to Continue"),
+                    "1.Install KWCH app in android Phone (Requires Paid- in app purchase) and Wear OS Smart Watch (Free) both \n "
+                        "2.Connect Smartwatch with Phone. Open this watchface in KWCH app of Android Phone \n "
+                        "3.Apply KWCH watchface on the watch\n "
+                        "4. In the phone, select one watchface from KWCH app. Click on the Green watch icon on the top Apply and done \n "
+                        "5. Ok to Continue"
+
+                        ),
             Padding(
               padding: const EdgeInsets.only(top: 16.0),
               child: Center(

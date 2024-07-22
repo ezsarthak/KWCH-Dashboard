@@ -2,13 +2,13 @@
 <resources>
 
     <!-- App name as per the launcher -->
-    <string name="app_name">Nothing Watch Studio</string>
+    <string name="app_name">Novel KWCH</string>
 
     <!-- Name of the skin to be shown inside the app, by default its the same as the app name -->
-    <string name="kustom_pack_title">Nothing Watch Studio</string>
+    <string name="kustom_pack_title">Novel KWCH</string>
 
     <!-- A brief description of the pack contents -->
-    <string name="kustom_pack_description">Watch Faces Inspired From Nothing UI</string>
+    <string name="kustom_pack_description">Dashboard for KWCH watchfaces</string>
 
 
 </resources>

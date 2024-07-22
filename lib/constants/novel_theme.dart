@@ -1,4 +1,3 @@
-// ignore_for_file: deprecated_member_use
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +42,9 @@ class Styles {
           isDarkTheme ? Colors.amber.shade300 : Colors.blueGrey.shade500,
       secondaryHeaderColor:
           isDarkTheme ? const Color(0xff273D5E) : const Color(0xffD7EAEF),
-      backgroundColor: isDarkTheme ? Colors.black : const Color(0xffD7EAEF),
+
+    // TODO :
+      // backgroundColor: isDarkTheme ? Colors.black : const Color(0xffD7EAEF),
       brightness: isDarkTheme ? Brightness.light : Brightness.dark,
       cardColor: isDarkTheme ? Colors.grey.shade900 : const Color(0xffD7EAEF),
       navigationBarTheme: NavigationBarThemeData(
