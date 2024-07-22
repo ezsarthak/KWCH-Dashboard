@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:novel/constants/novel_colors.dart';
@@ -11,9 +13,25 @@ import '../pages/settings_screen.dart';
 import '../pages/wallpapers_screen.dart';
 import '../pages/widgets_screen.dart';
 
-class NavigationScreen extends StatelessWidget {
+class NavigationScreen extends StatefulWidget {
   final AsyncSnapshot<List<String>> snapshot;
   const NavigationScreen({Key? key, required this.snapshot}) : super(key: key);
+
+  @override
+  State<NavigationScreen> createState() => _NavigationScreenState();
+}
+
+class _NavigationScreenState extends State<NavigationScreen> {
+  List<String> img = [];
+  @override
+  void initState() {
+    widget.snapshot.data!.forEach((element) {
+      if (element.endsWith('.jpg')) {
+        img.add(element);
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,19 +111,34 @@ class NavigationScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => WidgetScreen(
-                                    snapshot: snapshot,
+                                    snapshot: widget.snapshot,
                                   )));
                     },
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.49,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(32),
-                          image: const DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("assets/app elements/widget.png"),
-                          )),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.51,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(32),
+                              image: const DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage(
+                                    "assets/app elements/widget.png"),
+                              )),
+                        ),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.31,
+                          width: MediaQuery.of(context).size.height * 0.31,
+                          decoration: BoxDecoration(
+
+                              image: DecorationImage(
+                                  image: FileImage(File(img.elementAt(0)))),
+                              borderRadius: BorderRadius.circular(360)),
+                        ),
+                      ],
                     ),
                   ),
                   // const SizedBox(
@@ -154,7 +187,7 @@ class NavigationScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => OtherApps(
-                                            snapshot: snapshot,
+                                            snapshot: widget.snapshot,
                                           )));
                             },
                             child: Container(
