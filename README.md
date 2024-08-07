@@ -42,6 +42,7 @@ This project is made with Flutter by Sarthak Patil.
 11.3 Go to Project Settings And add SHA1 and SHA256 
 
 
+
 12.  flutter build apk --split-per-abi
      flutter build appbundle
 
